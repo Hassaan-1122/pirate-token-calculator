@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pirate Token Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Pirata+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<main>
+<header class="hero">
+<svg class="coin" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="cg" cx="35%" cy="30%"><stop offset="0" stop-color="#fff0b8"/><stop offset=".6" stop-color="#e8b84a"/><stop offset="1" stop-color="#9a6a14"/></radialGradient></defs><circle cx="32" cy="32" r="29" fill="url(#cg)"/><circle cx="32" cy="32" r="23" fill="none" stroke="#7a5210" stroke-width="2"/><path d="M22 22l20 20M42 22L22 42" stroke="#6b4608" stroke-width="5" stroke-linecap="round"/></svg>
+<h1>PIRATE TOKEN CALCULATOR</h1>
+<p>Calculate your chances of finding the legendary Pirate Shop Token.</p>
+</header>
+
+<section class="card">
+<h2><span class="st">1</span>Choose your mode</h2>
+<div class="modes">
+<button class="mode" data-m="normal"><b>Normal Mode</b><span>Regular chests</span></button>
+<button class="mode" data-m="th"><b>Treasure Hour (1.5×)</b><span>Boosted odds</span></button>
+<button class="mode" data-m="sp"><b>Special Treasure Hour (2×)</b><span>Announced session only</span></button>
+</div>
+<p id="rate"></p>
+</section>
+
+<section class="card">
+<h2><span class="st">2</span><label for="n">How many chests have you opened?</label></h2>
+<input id="n" type="text" inputmode="numeric" autocomplete="off" placeholder="Type a number">
+<div class="chips" id="chips"></div>
+<button id="calc">Calculate</button>
+<p id="err" role="alert"></p>
+</section>
+
+<section class="card" id="res" aria-live="polite">
+<p id="hint">Enter how many chests you have opened to see your chances.</p>
+<div id="out">
+<p class="main">You have <span id="art">a</span> <span id="big"></span> chance of getting at least one token.</p>
+<div class="meter"><i id="fill"></i></div>
+<p id="plain"></p>
+<div class="two">
+<div class="stat"><span>Chance of getting no tokens</span><b id="miss"></b></div>
+<div class="stat"><span>Expected tokens (on average)</span><b id="exp"></b></div>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>What if you opened the same number of chests during Treasure Hour?</h2>
+<div id="cmp"></div>
+</section>
+
+<section class="card">
+<h2>How your chances grow</h2>
+<div class="tabs" role="group" aria-label="Graph mode">
+<button data-g="normal">Normal</button><button data-g="th">Treasure Hour 1.5×</button><button data-g="sp">Special 2×</button>
+</div>
+<svg id="gr" viewBox="0 0 640 310" role="img" aria-label="Chance of at least one token as chests are opened"></svg>
+<p id="mil"></p>
+</section>
+
+<p class="fine">These results are mathematical probabilities based on published drop rates. They are not guarantees. Each chest is treated as an independent attempt.</p>
+</main>
+<script src="script.js"></script></body></html>
